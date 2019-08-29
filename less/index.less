@@ -1,5 +1,5 @@
 // Is this working?
-/* http://meyerweb.com/eric/tools/css/reset/ 
+/* http://meyerweb.com/eric/tools/css/reset/
    v2.0 | 20110126
    License: none (public domain)
 */
@@ -13,8 +13,8 @@ b, u, i, center,
 dl, dt, dd, ol, ul, li,
 fieldset, form, label, legend,
 table, caption, tbody, tfoot, thead, tr, th, td,
-article, aside, canvas, details, embed, 
-figure, figcaption, footer, header, hgroup, 
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
 menu, nav, output, ruby, section, summary,
 time, mark, audio, video {
 	margin: 0;
@@ -25,7 +25,7 @@ time, mark, audio, video {
 	vertical-align: baseline;
 }
 /* HTML5 display-role reset for older browsers */
-article, aside, details, figcaption, figure, 
+article, aside, details, figcaption, figure,
 footer, header, hgroup, menu, nav, section {
 	display: block;
 }
@@ -56,4 +56,205 @@ table {
 html, body {
     height: 100%;
 }
+/*create some common use variables and Mixins that I intend to use multiple times throughout the project here */
+@background: #242424; //dark gray
+@background-alt: #3e4346;  //to bring out a different color for other elements to standout better. medium gray
+@font: rgb(184, 191, 199);
 
+.centered{
+	justify-content: center;
+	align-items: center;
+}
+
+.m-reset{ //reset margins back to 0
+	margin:0;
+}
+
+
+
+
+/*Page Styling starts here*/
+
+body{
+	background-color: @background;
+
+}
+.container{
+	background-color: @background;
+	color:@font;
+	width: 1000px;
+	margin: 0 auto;
+
+
+	@media(max-width: 1000px){
+		margin: 0 auto;
+		width:100%;
+	}
+
+	& header{
+		display: flex;
+		justify-content: flex-end;
+		width:90%;
+		padding: 20px 0;
+		margin: 0 5%;
+		@media(max-width:500px){ //mobile view should fill the whole screen for a block like vertical scroll style
+			display:flex;
+			width:100%;
+			.centered;
+			.m-reset;
+			padding: 0;
+		}
+	}
+
+	& nav{
+		@media(max-width: 500px){
+			display: flex;
+			flex-flow: column;
+			.centered;
+			width:100%;
+		}
+	}
+
+	& nav a{
+		text-decoration: none;
+		color: @font;
+		margin: 20px 10px;
+
+		@media(max-width: 500px){
+			width:100%;
+			text-align: center;
+			padding: 20px 0;
+			.m-reset;
+			border-bottom: 2px solid @font;
+
+		}
+	}
+
+}
+
+.content-container{
+	width: 90%;
+	margin: 0 5%;
+	@media(max-width:500px){ //mobile view should fill the whole screen for a block like vertical scroll style
+		width:100%;
+		.m-reset;
+	}
+
+	button{
+		border: 1px solid black;
+		border-radius: 5px;
+		margin: 15px 0;
+		padding: 5px;
+		font-style: oblique;
+		font-size: .9rem;
+
+		@media(max-width: 500px){
+			display:none;
+		}
+	}
+
+	.mobile-button{
+		display:none;
+		@media(max-width: 500px){
+			display: block;
+
+			text-align: center;
+			width: 100%;
+			margin:20px 0 0 0;
+			border-top: 2px solid black;
+			a {
+				text-decoration: none;
+				color:navy;
+			}
+		}
+
+	}
+
+
+	div{
+		padding: 20px 0;
+		margin: 0 2%;
+	}
+	h1{
+		font-size: 2rem;
+		margin: 10px 0;
+	}
+	h2{
+		font-size: 1.2rem;
+		margin:10px 0;
+	}
+
+	ul li{
+		padding: 10px 0 10px 10px;
+		border: 1px solid @font;
+
+	}
+
+	table{
+		text-align: left;
+		margin: 10px 0;
+		width:100%;
+	}
+
+	tr{
+		border-top: 2px solid @background-alt;
+		border-bottom: 2px solid @background-alt;
+
+	}
+
+	th:first-of-type, td:first-of-type {
+		width: 20%;
+	}
+
+	th, td{
+		width:30%;
+		padding:10px;
+	}
+
+	th:last-of-type, th:last-of-type{
+		width:20%;
+	}
+
+	&.alt{
+		background-color: @background-alt;
+		color:black;
+	}
+
+	&.alt div:first-of-type{
+		border-bottom: 2px solid black;
+	}
+	.table-fill{
+		background:black;
+	}
+}
+
+#split{
+	display: flex;
+
+	div{
+		width:50%;
+	}
+	@media(max-width: 500px){
+		flex-flow: column;
+		div{
+			width:100%;
+			.m-reset;
+
+		}
+		ul{
+			text-align: center;
+		}
+	}
+}
+
+footer{
+	text-align: center;
+	margin: 20px 0;
+}
+
+@media(max-width:500px){
+
+	img{
+		display:none;
+	}
+}

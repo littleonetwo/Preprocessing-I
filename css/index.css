@@ -1,1 +1,314 @@
-/* Compile your LESS file! */
+/* http://meyerweb.com/eric/tools/css/reset/
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+html,
+body,
+div,
+span,
+applet,
+object,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+a,
+abbr,
+acronym,
+address,
+big,
+cite,
+code,
+del,
+dfn,
+em,
+img,
+ins,
+kbd,
+q,
+s,
+samp,
+small,
+strike,
+strong,
+sub,
+sup,
+tt,
+var,
+b,
+u,
+i,
+center,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+legend,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td,
+article,
+aside,
+canvas,
+details,
+embed,
+figure,
+figcaption,
+footer,
+header,
+hgroup,
+menu,
+nav,
+output,
+ruby,
+section,
+summary,
+time,
+mark,
+audio,
+video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section {
+  display: block;
+}
+body {
+  line-height: 1;
+}
+ol,
+ul {
+  list-style: none;
+}
+blockquote,
+q {
+  quotes: none;
+}
+blockquote:before,
+blockquote:after,
+q:before,
+q:after {
+  content: '';
+  content: none;
+}
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+/* Set every element's box-sizing to border-box */
+* {
+  box-sizing: border-box;
+}
+html,
+body {
+  height: 100%;
+}
+/*create some common use variables and Mixins that I intend to use multiple times throughout the project here */
+.centered {
+  justify-content: center;
+  align-items: center;
+}
+.m-reset {
+  margin: 0;
+}
+/*Page Styling starts here*/
+body {
+  background-color: #242424;
+}
+.container {
+  background-color: #242424;
+  color: #b8bfc7;
+  width: 1000px;
+  margin: 0 auto;
+}
+@media (max-width: 1000px) {
+  .container {
+    margin: 0 auto;
+    width: 100%;
+  }
+}
+.container header {
+  display: flex;
+  justify-content: flex-end;
+  width: 90%;
+  padding: 20px 0;
+  margin: 0 5%;
+}
+@media (max-width: 500px) {
+  .container header {
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+    margin: 0;
+    padding: 0;
+  }
+}
+@media (max-width: 500px) {
+  .container nav {
+    display: flex;
+    flex-flow: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+  }
+}
+.container nav a {
+  text-decoration: none;
+  color: #b8bfc7;
+  margin: 20px 10px;
+}
+@media (max-width: 500px) {
+  .container nav a {
+    width: 100%;
+    text-align: center;
+    padding: 20px 0;
+    margin: 0;
+    border-bottom: 2px solid #b8bfc7;
+  }
+}
+.content-container {
+  width: 90%;
+  margin: 0 5%;
+}
+@media (max-width: 500px) {
+  .content-container {
+    width: 100%;
+    margin: 0;
+  }
+}
+.content-container button {
+  border: 1px solid black;
+  border-radius: 5px;
+  margin: 15px 0;
+  padding: 5px;
+  font-style: oblique;
+  font-size: 0.9rem;
+}
+@media (max-width: 500px) {
+  .content-container button {
+    display: none;
+  }
+}
+.content-container .mobile-button {
+  display: none;
+}
+@media (max-width: 500px) {
+  .content-container .mobile-button {
+    display: block;
+    text-align: center;
+    width: 100%;
+    margin: 20px 0 0 0;
+    border-top: 2px solid black;
+  }
+  .content-container .mobile-button a {
+    text-decoration: none;
+    color: navy;
+  }
+}
+.content-container div {
+  padding: 20px 0;
+  margin: 0 2%;
+}
+.content-container h1 {
+  font-size: 2rem;
+  margin: 10px 0;
+}
+.content-container h2 {
+  font-size: 1.2rem;
+  margin: 10px 0;
+}
+.content-container ul li {
+  padding: 10px 0 10px 10px;
+  border: 1px solid #b8bfc7;
+}
+.content-container table {
+  text-align: left;
+  margin: 10px 0;
+  width: 100%;
+}
+.content-container tr {
+  border-top: 2px solid #3e4346;
+  border-bottom: 2px solid #3e4346;
+}
+.content-container th:first-of-type,
+.content-container td:first-of-type {
+  width: 20%;
+}
+.content-container th,
+.content-container td {
+  width: 30%;
+  padding: 10px;
+}
+.content-container th:last-of-type,
+.content-container th:last-of-type {
+  width: 20%;
+}
+.content-container.alt {
+  background-color: #3e4346;
+  color: black;
+}
+.content-container.alt div:first-of-type {
+  border-bottom: 2px solid black;
+}
+.content-container .table-fill {
+  background: black;
+}
+#split {
+  display: flex;
+}
+#split div {
+  width: 50%;
+}
+@media (max-width: 500px) {
+  #split {
+    flex-flow: column;
+  }
+  #split div {
+    width: 100%;
+    margin: 0;
+  }
+  #split ul {
+    text-align: center;
+  }
+}
+footer {
+  text-align: center;
+  margin: 20px 0;
+}
+@media (max-width: 500px) {
+  img {
+    display: none;
+  }
+}
